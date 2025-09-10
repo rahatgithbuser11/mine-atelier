@@ -67,7 +67,7 @@
             "featured_products_aspect_ratio": "adapt",
             "featured_collections_aspect_ratio": "16 / 9",
             "image_border_radius": 0,
-            "product_title_case": "default",
+            "product_title_case": "uppercase",
             "collection_title_case": "default",
             "color_scheme": "scheme-5",
             "menu_font_style": "inverse",
