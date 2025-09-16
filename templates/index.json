@@ -62,8 +62,9 @@
       "settings": {
         "media_type_1": "video",
         "image_1": "shopify://shop_images/4k-snowboarding-in-snowy-mountains.png",
-        "media_type_2": "image",
+        "media_type_2": "video",
         "image_2": "shopify://shop_images/4k-snowboarding-in-snowy-mountains.png",
+        "video_2": "shopify://files/videos/videoplayback.mp4",
         "link": "",
         "open_in_new_tab": false,
         "content_direction": "column",
