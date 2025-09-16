@@ -1,0 +1,193 @@
+{{ 'scrolling-banner-footer.css' | asset_url | stylesheet_tag }}
+
+<div class="scrolling-banner-footer">
+  <div class="scrolling-banner-container">
+    <!-- First Banner -->
+    <div class="scrolling-banner banner-1">
+      <div class="banner-content">
+        <span class="banner-text">{{ section.settings.banner_text_1 | default: "FREE SHIPPING OVER DKK 8888 WE SHIP FOR FREE OVER DKK 8888 WE SHIP FOR FREE OVER DKK 8888 WE SHIP FOR FREE OVER DKK 8888" }}</span>
+      </div>
+    </div>
+    
+    <!-- Second Banner -->
+    <div class="scrolling-banner banner-2">
+      <div class="banner-content">
+        <span class="banner-text">{{ section.settings.banner_text_2 | default: "EVERY ORDER WE PACK FREE CANDY & STICKERS W/ EVERY ORDER WE PACK FREE CANDY & STICKERS W/ EVERY ORDER WE PACK FREE CANDY & STICKERS" }}</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.scrolling-banner-footer {
+  background: #000;
+  color: #fff;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  margin-top: auto;
+}
+
+.scrolling-banner-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.scrolling-banner {
+  width: 100%;
+  padding: 12px 0;
+  overflow: hidden;
+  position: relative;
+  background: #000;
+  border-bottom: 1px solid #333;
+}
+
+.scrolling-banner:last-child {
+  border-bottom: none;
+}
+
+.banner-content {
+  display: flex;
+  white-space: nowrap;
+  animation: scroll-right-to-left 30s linear infinite;
+}
+
+.banner-2 .banner-content {
+  animation: scroll-right-to-left 35s linear infinite;
+}
+
+.banner-text {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #fff;
+  margin-right: 100px;
+  display: inline-block;
+}
+
+@keyframes scroll-right-to-left {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .banner-text {
+    font-size: 12px;
+    margin-right: 50px;
+  }
+  
+  .scrolling-banner {
+    padding: 8px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .banner-text {
+    font-size: 10px;
+    margin-right: 30px;
+  }
+  
+  .scrolling-banner {
+    padding: 6px 0;
+  }
+}
+</style>
+
+{% schema %}
+{
+  "name": "Scrolling Banner Footer",
+  "tag": "footer",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Banner Text Settings"
+    },
+    {
+      "type": "textarea",
+      "id": "banner_text_1",
+      "label": "First Banner Text",
+      "default": "FREE SHIPPING OVER DKK 8888 WE SHIP FOR FREE OVER DKK 8888 WE SHIP FOR FREE OVER DKK 8888 WE SHIP FOR FREE OVER DKK 8888",
+      "info": "This text will scroll from right to left in the first banner"
+    },
+    {
+      "type": "textarea",
+      "id": "banner_text_2",
+      "label": "Second Banner Text",
+      "default": "EVERY ORDER WE PACK FREE CANDY & STICKERS W/ EVERY ORDER WE PACK FREE CANDY & STICKERS W/ EVERY ORDER WE PACK FREE CANDY & STICKERS",
+      "info": "This text will scroll from right to left in the second banner"
+    },
+    {
+      "type": "header",
+      "content": "Animation Settings"
+    },
+    {
+      "type": "range",
+      "id": "animation_speed_1",
+      "label": "First Banner Speed (seconds)",
+      "min": 10,
+      "max": 60,
+      "step": 5,
+      "default": 30,
+      "info": "How fast the first banner scrolls (lower = faster)"
+    },
+    {
+      "type": "range",
+      "id": "animation_speed_2",
+      "label": "Second Banner Speed (seconds)",
+      "min": 10,
+      "max": 60,
+      "step": 5,
+      "default": 35,
+      "info": "How fast the second banner scrolls (lower = faster)"
+    },
+    {
+      "type": "header",
+      "content": "Styling"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "font_size",
+      "label": "Font Size (px)",
+      "min": 10,
+      "max": 24,
+      "step": 1,
+      "default": 14
+    },
+    {
+      "type": "range",
+      "id": "banner_padding",
+      "label": "Banner Padding (px)",
+      "min": 4,
+      "max": 20,
+      "step": 2,
+      "default": 12
+    }
+  ],
+  "presets": [
+    {
+      "name": "Scrolling Banner Footer"
+    }
+  ]
+}
+{% endschema %}
