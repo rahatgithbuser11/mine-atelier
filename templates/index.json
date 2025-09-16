@@ -575,10 +575,10 @@
         "banner_text_2": "EVERY ORDER WE PACK FREE CANDY & STICKERS W/ EVERY ORDER WE PACK FREE CANDY & STICKERS W/ EVERY ORDER WE PACK FREE CANDY & STICKERS",
         "animation_speed_1": 20,
         "animation_speed_2": 20,
-        "background_color": "#000000",
+        "background_color": "#ffffff",
         "text_color": "#ffffff",
-        "font_size": 17,
-        "banner_padding": 12
+        "font_size": 10,
+        "banner_padding": 4
       }
     }
   },
@@ -586,7 +586,7 @@
     "hero_jVaWmY",
     "product_list_fa6P9H",
     "section_hwCtkD",
-    "product_list_6D63fj",
-    "scrolling_banner_footer"
+    "scrolling_banner_footer",
+    "product_list_6D63fj"
   ]
 }
