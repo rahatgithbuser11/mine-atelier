@@ -11,6 +11,21 @@
   "type": "footer",
   "name": "Footer",
   "sections": {
+    "flash_sale_section_8jPL9k": {
+      "type": "flash-sale-section",
+      "name": "Flash Sale Banner",
+      "settings": {
+        "sale_title": "Flash Sale now on!",
+        "promo_text": "Save on modern table office, best sellers + more",
+        "cta_text": "Use Code: FLASH30",
+        "cta_link": "",
+        "countdown_hours": 24,
+        "background_color": "#000000",
+        "text_color": "#ffffff",
+        "button_bg_color": "#ffffff",
+        "button_text_color": "#000000"
+      }
+    },
     "section_KKmaYW": {
       "type": "section",
       "blocks": {
@@ -375,6 +390,7 @@
     }
   },
   "order": [
+    "flash_sale_section_8jPL9k",
     "section_KKmaYW",
     "footer"
   ]
