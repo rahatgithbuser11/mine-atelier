@@ -1,5 +1,228 @@
-
-
+<style>
+  /* Glass Header Transparent Effect */
+  .header, 
+  .site-header, 
+  .shopify-section-header,
+  header[role="banner"] {
+    background: rgba(255, 255, 255, 0.08) !important;
+    backdrop-filter: blur(20px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1) !important;
+    position: relative !important;
+    z-index: 1000 !important;
+  }
+  
+  /* Enhanced glass effect with gradient overlay */
+  .header::before,
+  .site-header::before,
+  .shopify-section-header::before,
+  header[role="banner"]::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+      135deg, 
+      rgba(255, 255, 255, 0.1) 0%, 
+      rgba(255, 255, 255, 0.05) 50%, 
+      rgba(255, 255, 255, 0.02) 100%
+    );
+    border-radius: inherit;
+    pointer-events: none;
+    z-index: -1;
+  }
+  
+  /* Header navigation links styling for glass effect */
+  .header nav,
+  .header .navigation,
+  .site-nav,
+  .main-nav {
+    background: transparent !important;
+  }
+  
+  /* Navigation links with glass hover effect */
+  .header a,
+  .site-nav a,
+  .main-nav a,
+  .header .nav-link {
+    color: rgba(255, 255, 255, 0.9) !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3) !important;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+    position: relative !important;
+  }
+  
+  .header a:hover,
+  .site-nav a:hover,
+  .main-nav a:hover,
+  .header .nav-link:hover {
+    color: rgba(255, 255, 255, 1) !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(10px) !important;
+    border-radius: 8px !important;
+    padding: 8px 12px !important;
+    transform: translateY(-1px) !important;
+  }
+  
+  /* Logo styling for glass header */
+  .header .logo,
+  .site-header .logo,
+  .header h1,
+  .site-title {
+    color: rgba(255, 255, 255, 0.95) !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3) !important;
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2)) !important;
+  }
+  
+  /* Search and cart icons with glass effect */
+  .header .search-icon,
+  .header .cart-icon,
+  .header .account-icon,
+  .site-header .icon {
+    color: rgba(255, 255, 255, 0.9) !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border-radius: 50% !important;
+    padding: 8px !important;
+    transition: all 0.3s ease !important;
+  }
+  
+  .header .search-icon:hover,
+  .header .cart-icon:hover,
+  .header .account-icon:hover,
+  .site-header .icon:hover {
+    background: rgba(255, 255, 255, 0.15) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2) !important;
+  }
+  
+  /* Dropdown menus with glass effect */
+  .header .dropdown,
+  .site-nav .dropdown,
+  .header .submenu {
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(25px) saturate(180%) !important;
+    -webkit-backdrop-filter: blur(25px) saturate(180%) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border-radius: 12px !important;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.2) !important;
+    padding: 8px !important;
+  }
+  
+  .header .dropdown a,
+  .site-nav .dropdown a {
+    color: rgba(255, 255, 255, 0.9) !important;
+    padding: 8px 16px !important;
+    border-radius: 8px !important;
+    transition: all 0.2s ease !important;
+  }
+  
+  .header .dropdown a:hover,
+  .site-nav .dropdown a:hover {
+    background: rgba(255, 255, 255, 0.15) !important;
+    color: rgba(255, 255, 255, 1) !important;
+  }
+  
+  /* Mobile menu button with glass effect */
+  .header .mobile-menu-button,
+  .site-header .hamburger,
+  .mobile-nav-toggle {
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 8px !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+  }
+  
+  /* Mobile menu with enhanced glass effect */
+  .mobile-menu,
+  .mobile-nav {
+    background: rgba(255, 255, 255, 0.08) !important;
+    backdrop-filter: blur(30px) saturate(200%) !important;
+    -webkit-backdrop-filter: blur(30px) saturate(200%) !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.1) !important;
+  }
+  
+  /* Currency selector and other dropdowns */
+  .header select,
+  .currency-selector,
+  .language-selector {
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(10px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.15) !important;
+    border-radius: 8px !important;
+    color: rgba(255, 255, 255, 0.9) !important;
+  }
+  
+  /* Animation for smooth glass transitions */
+  @keyframes glassShimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+  
+  .header::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg, 
+      transparent, 
+      rgba(255, 255, 255, 0.1), 
+      transparent
+    );
+    animation: glassShimmer 3s infinite;
+    pointer-events: none;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .header,
+    .site-header {
+      backdrop-filter: blur(15px) saturate(150%) !important;
+      -webkit-backdrop-filter: blur(15px) saturate(150%) !important;
+    }
+    
+    .header a:hover {
+      padding: 6px 10px !important;
+    }
+  }
+  
+  /* Dark mode support */
+  @media (prefers-color-scheme: dark) {
+    .header,
+    .site-header {
+      background: rgba(0, 0, 0, 0.3) !important;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05) !important;
+    }
+    
+    .header::before,
+    .site-header::before {
+      background: linear-gradient(
+        135deg, 
+        rgba(255, 255, 255, 0.05) 0%, 
+        rgba(255, 255, 255, 0.02) 50%, 
+        rgba(255, 255, 255, 0.01) 100%
+      );
+    }
+  }
+  
+  /* Additional glass effects for specific elements */
+  .cart-count,
+  .badge {
+    background: rgba(255, 255, 255, 0.2) !important;
+    backdrop-filter: blur(8px) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    border-radius: 50% !important;
+    color: rgba(255, 255, 255, 1) !important;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.5) !important;
+  }
+  </style>
 {% liquid
   assign order = 'logo,menu,localization,search,mobile_search,actions'
 
