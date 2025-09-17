@@ -148,10 +148,10 @@
             "text_k3RB3w": {
               "type": "text",
               "settings": {
-                "text": "<h2><em><strong>We are offering free shipping over 120K-</strong></em></h2>",
-                "width": "fit-content",
+                "text": "<h2><em>We are offering free shipping over 120K        ***</em></h2>",
+                "width": "100%",
                 "max_width": "normal",
-                "alignment": "left",
+                "alignment": "center",
                 "type_preset": "h2",
                 "font": "var(--font-body--family)",
                 "font_size": "1rem",
