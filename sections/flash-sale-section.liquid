@@ -1,0 +1,391 @@
+{{ 'flash-sale-banner.css' | asset_url | stylesheet_tag }}
+
+<div class="flash-sale-banner" id="flashSaleBanner">
+  <div class="flash-sale-container">
+    <div class="flash-sale-content">
+      <!-- Left Section: Flash Sale Text -->
+      <div class="flash-sale-text">
+        <h2 class="sale-title">{{ section.settings.sale_title | default: "Flash Sale now on!" }}</h2>
+      </div>
+      
+      <!-- Center Section: Countdown Timer -->
+      <div class="countdown-timer" id="countdownTimer">
+        <div class="time-block">
+          <span class="time-number" id="days">13</span>
+        </div>
+        <span class="time-separator">:</span>
+        <div class="time-block">
+          <span class="time-number" id="hours">12</span>
+        </div>
+        <span class="time-separator">:</span>
+        <div class="time-block">
+          <span class="time-number" id="minutes">03</span>
+        </div>
+        <span class="time-separator">:</span>
+        <div class="time-block">
+          <span class="time-number" id="seconds">16</span>
+        </div>
+      </div>
+      
+      <!-- Right Section: Promotional Text and Button -->
+      <div class="promo-section">
+        <p class="promo-text">{{ section.settings.promo_text | default: "Save on modern table office, best sellers + more" }}</p>
+        <a href="{{ section.settings.cta_link | default: '/collections/sale' }}" class="cta-button">
+          {{ section.settings.cta_text | default: "Use Code: FLASH30" }}
+        </a>
+      </div>
+    </div>
+    
+    <!-- Close Button -->
+    <button class="close-banner" onclick="closeBanner()" aria-label="Close banner">
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+        <path d="M12 4L4 12M4 4L12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+      </svg>
+    </button>
+  </div>
+</div>
+
+<style>
+.flash-sale-banner {
+  background: linear-gradient(135deg, #000 0%, #1a1a1a 100%);
+  color: #fff;
+  padding: 16px 20px;
+  position: relative;
+  width: 100vw;
+  left: 50%;
+  right: 50%;
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  font-family: Arial, sans-serif;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+.flash-sale-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flash-sale-content {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 20px;
+}
+
+.flash-sale-text {
+  flex: 1;
+  min-width: 200px;
+}
+
+.sale-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0;
+  color: #fff;
+}
+
+.countdown-timer {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex: 0 0 auto;
+}
+
+.time-block {
+  background: rgba(255,255,255,0.1);
+  border-radius: 6px;
+  padding: 8px 12px;
+  min-width: 40px;
+  text-align: center;
+  border: 1px solid rgba(255,255,255,0.2);
+}
+
+.time-number {
+  font-size: 24px;
+  font-weight: 700;
+  color: #fff;
+  display: block;
+  line-height: 1;
+}
+
+.time-separator {
+  font-size: 24px;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 4px;
+}
+
+.promo-section {
+  flex: 1;
+  text-align: right;
+  min-width: 250px;
+}
+
+.promo-text {
+  font-size: 14px;
+  margin: 0 0 8px 0;
+  color: #fff;
+  font-weight: 500;
+}
+
+.cta-button {
+  background: #fff;
+  color: #000;
+  padding: 10px 20px;
+  border-radius: 25px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 14px;
+  display: inline-block;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  background: #f0f0f0;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(255,255,255,0.2);
+}
+
+.close-banner {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.1);
+  border: none;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: #fff;
+  transition: background 0.3s ease;
+}
+
+.close-banner:hover {
+  background: rgba(255,255,255,0.2);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .flash-sale-banner {
+    padding: 12px 15px;
+  }
+  
+  .flash-sale-content {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+  
+  .flash-sale-text {
+    min-width: auto;
+  }
+  
+  .sale-title {
+    font-size: 16px;
+  }
+  
+  .promo-section {
+    text-align: center;
+    min-width: auto;
+  }
+  
+  .promo-text {
+    font-size: 13px;
+  }
+  
+  .time-number {
+    font-size: 20px;
+  }
+  
+  .time-separator {
+    font-size: 20px;
+  }
+  
+  .time-block {
+    padding: 6px 10px;
+    min-width: 35px;
+  }
+  
+  .close-banner {
+    right: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .countdown-timer {
+    gap: 4px;
+  }
+  
+  .time-block {
+    padding: 4px 8px;
+    min-width: 30px;
+  }
+  
+  .time-number {
+    font-size: 18px;
+  }
+  
+  .time-separator {
+    font-size: 18px;
+    margin: 0 2px;
+  }
+  
+  .cta-button {
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+}
+
+/* Animation for urgency */
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+.countdown-timer {
+  animation: pulse 2s ease-in-out infinite;
+}
+</style>
+
+<script>
+function initCountdown() {
+  // Set the target date - you can modify this or make it dynamic
+  const endTime = new Date().getTime() + (24 * 60 * 60 * 1000); // 24 hours from now
+  
+  function updateCountdown() {
+    const now = new Date().getTime();
+    const timeLeft = endTime - now;
+    
+    if (timeLeft > 0) {
+      const days = Math.floor(timeLeft / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((timeLeft % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((timeLeft % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((timeLeft % (1000 * 60)) / 1000);
+      
+      document.getElementById('days').textContent = days.toString().padStart(2, '0');
+      document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+      document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+      document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+    } else {
+      // Timer ended
+      document.getElementById('countdownTimer').innerHTML = '<span class="expired">Sale Ended</span>';
+    }
+  }
+  
+  // Update immediately and then every second
+  updateCountdown();
+  setInterval(updateCountdown, 1000);
+}
+
+function closeBanner() {
+  const banner = document.getElementById('flashSaleBanner');
+  banner.style.display = 'none';
+  
+  // Store in sessionStorage so it stays closed for the session
+  sessionStorage.setItem('flashSaleBannerClosed', 'true');
+}
+
+// Initialize when DOM is loaded
+document.addEventListener('DOMContentLoaded', function() {
+  // Check if banner was previously closed
+  if (sessionStorage.getItem('flashSaleBannerClosed') === 'true') {
+    document.getElementById('flashSaleBanner').style.display = 'none';
+  } else {
+    initCountdown();
+  }
+});
+</script>
+
+{% schema %}
+{
+  "name": "Flash Sale Header Banner",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Flash Sale Settings"
+    },
+    {
+      "type": "text",
+      "id": "sale_title",
+      "label": "Sale Title",
+      "default": "Flash Sale now on!",
+      "info": "Main sale announcement text"
+    },
+    {
+      "type": "textarea",
+      "id": "promo_text",
+      "label": "Promotional Text",
+      "default": "Save on modern table office, best sellers + more",
+      "info": "Descriptive text about the sale"
+    },
+    {
+      "type": "text",
+      "id": "cta_text",
+      "label": "Button Text",
+      "default": "Use Code: FLASH30",
+      "info": "Call-to-action button text"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "Button Link",
+      "info": "Where the button should link to"
+    },
+    {
+      "type": "header",
+      "content": "Timer Settings"
+    },
+    {
+      "type": "number",
+      "id": "countdown_hours",
+      "label": "Countdown Duration (hours)",
+      "default": 24,
+      "info": "How many hours the countdown should run for"
+    },
+    {
+      "type": "header",
+      "content": "Styling"
+    },
+    {
+      "type": "color",
+      "id": "background_color",
+      "label": "Background Color",
+      "default": "#000000"
+    },
+    {
+      "type": "color",
+      "id": "text_color",
+      "label": "Text Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_bg_color",
+      "label": "Button Background",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "button_text_color",
+      "label": "Button Text Color",
+      "default": "#000000"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Flash Sale Banner"
+    }
+  ]
+}
+{% endschema %}

@@ -564,21 +564,8 @@
         "horizontal_alignment": "center",
         "gap": 21,
         "color_scheme": "scheme-5",
-        "padding-block-start": 48,
+        "padding-block-start": 0,
         "padding-block-end": 48
-      }
-    },
-    "scrolling_banner_footer": {
-      "type": "scrolling-banner-footer",
-      "settings": {
-        "banner_text_1": "FREE SHIPPING OVER 120K WE SHIP FOR FREE OVER  120K  WE SHIP FOR FREE OVER 120K  WE SHIP FOR FREE OVER 120K",
-        "banner_text_2": "EVERY ORDER WE PACK FREE CANDY & STICKERS W/ EVERY ORDER WE PACK FREE CANDY & STICKERS W/ EVERY ORDER WE PACK FREE CANDY & STICKERS",
-        "animation_speed_1": 20,
-        "animation_speed_2": 20,
-        "background_color": "#ffffff",
-        "text_color": "#ffffff",
-        "font_size": 10,
-        "banner_padding": 4
       }
     }
   },
@@ -586,7 +573,6 @@
     "hero_jVaWmY",
     "product_list_fa6P9H",
     "section_hwCtkD",
-    "scrolling_banner_footer",
     "product_list_6D63fj"
   ]
 }
