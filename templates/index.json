@@ -577,7 +577,7 @@
         "horizontal_alignment": "center",
         "gap": 21,
         "color_scheme": "scheme-5",
-        "padding-block-start": 48,
+        "padding-block-start": 0,
         "padding-block-end": 48
       }
     }
