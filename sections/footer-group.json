@@ -18,7 +18,7 @@
           "type": "text",
           "name": "t:names.heading",
           "settings": {
-            "text": "<h3>OUR INSTAGRAM</h3>",
+            "text": "<h3>We are on Gram</h3>",
             "width": "fit-content",
             "max_width": "none",
             "alignment": "left",
